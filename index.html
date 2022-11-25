@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="h-16 "><img class="m-2" src="./assets/logo.png" alt="logo"></header>
+    <main>
+        <div class="flex flex-column h-[80vh]">
+            <h1
+                class="text-custom text-7xl font-extrabold text-center w-full justify-center items-center font-sans m-72">
+                Evolution des causes de mortalité dans le monde</h1>
+        </div>
+        <div class="bg-custom p-20">
+            <p class="text-white font-semibold font-sans text-2xl ">“Wubba Lubba Dub Dub!” — Rick
+                “What, so everyone’s supposed to sleep every single night now? You realize that nighttime makes up half
+                of all time?” — Rick
+                “Boom! Big reveal! I turned myself into a pickle!” — Rick
+                “Nobody exists on purpose. Nobody belongs anywhere. We’re all going to die. Come watch TV.” — Morty
+                “To live is to risk it all; otherwise you’re just an inert chunk of randomly assembled molecules
+                drifting wherever the universe blows you.” — Rick</p>
+        </div>
+        <div class="">
+            <p class="text-custom text-5xl font-extrabold text-center justify-center items-center font-sans m-28">Taux
+                de mortalité en fonction de la cause</p>
+            <div class="flex flex-row">
+                <p class="mx-8">cause : </p>
+                <select>
+                    <option value="tout">tout</option>
+                </select>
+            </div>
+            <!-- ici on met le choroplet -->
+        </div>
+        <div class="">
+            <p class="text-custom text-5xl font-extrabold text-center justify-center items-center font-sans m-28">
+                Evolution de ce taux entre 1990 et 2019</p>
+            <div class="flex flex-column">
+                <aside class="">
+                    <p class="mx-8">cause : </p> <select>
+                        <option value="tout">tout</option>
+                    </select>
+                    <p class="mx-8">zone : </p> <select>
+                        <option value="monde">monde</option>
+                    </select>
+                    <p class="mx-8">periode : </p> <select>
+                        <option value="monde">periode</option>
+                    </select> <!-- pas sur -->
+                </aside>
+                <div class="">
+                    <!-- ici on met le streamchart -->
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-custom p-3 mt-16">
+        <p class="text-white text-lg font-bold font-sans">MMI 2022 SAE303 groupe Léo Meunier et Nathan Carlini</p>
+    </footer>
+</body>
+
+</html>
