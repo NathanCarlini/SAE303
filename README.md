@@ -29,3 +29,5 @@ Les commandes git à utiliser pour upload du taf sont :
 Les commandes git à utiliser pour descendre du travail sont :
     - git status
     - git pull origin leNomDeLaBranche
+
+    Pour la page HTML, le style se fera en TailwindCSS
