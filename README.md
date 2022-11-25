@@ -28,4 +28,7 @@ Les commandes git à utiliser pour upload du taf sont :
 
 Les commandes git à utiliser pour descendre du travail sont :
     - git status
-    - git pull origin leNomDeLaBranche
+    - git pull origin leNomDeLaBranche 
+
+
+cébon
