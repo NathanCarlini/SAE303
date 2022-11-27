@@ -37,12 +37,12 @@ Les commandes git à utiliser pour descendre du travail sont :
 
 Pour la page HTML, le style se fera en TailwindCSS
 
-# Note pour tailwind : l'installer à un niveau au dessus du dossier de travail lié à github, donc installer Tailwind dans le répertoire parent pourqu'il fonctionne correctement et éviter de push les nodes_modules et les package.json/package-lock.json
+## Note pour tailwind : l'installer à un niveau au dessus du dossier de travail lié à github, donc installer Tailwind dans le répertoire parent pourqu'il fonctionne correctement et éviter de push les nodes_modules et les package.json/package-lock.json
 
 filtres à utiliser :
-    choropleth :
-        cause
-    streamchart :
-        cause
-        zone géographique
-        période (à ajouter en fin)
+    - choropleth :
+        - cause
+    - streamchart :
+        - cause
+        - zone géographique
+        - période (à ajouter en fin)
