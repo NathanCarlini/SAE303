@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style.css">
     <title>Document</title>
+
+
+    <script src="./scripts/echarts.js"></script>
+    <link rel="stylesheet" href="./scripts/leaflet.css"/>
+    <script src="./scripts/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 
 <body>
@@ -35,9 +41,13 @@
                     <option value="tout">tout</option>
                 </select>
             </div>
-            <div class="">
+            <div class="" style="height:600px; width:400;" id="choropleth">
+
+
                 <!-- ici on met le choroplet -->
             </div>
+            <script src="data/countries.geojson" type="application/json"></script>
+            <script src="scripts/map.js" type='module'></script>
         </div>
         <div class="">
             <p class="text-custom text-5xl font-extrabold text-center justify-center items-center font-sans m-28">
@@ -45,22 +55,22 @@
             <div class="flex flex-column ">
                 <aside class="bg-custom p-4">
                     <p class="mx-8 text-white inline-block">cause : </p> <select class="bg-custom text-white">
-                        <option value="tout" class="text-white" >tout</option>
+                        <option value="tout" class="text-white">tout</option>
                     </select></br>
                     <p class="mx-8 text-white inline-block">zone : </p> <select class="bg-custom text-white">
-                        <option value="monde" class="text-white" >monde</option>
+                        <option value="monde" class="text-white">monde</option>
                     </select></br>
                     <p class="mx-8 text-white inline-block">periode : </p> <select class="bg-custom text-white">
 
-                        <option value="periode" class="text-white" >periode</option>
+                        <option value="periode" class="text-white">periode</option>
                     </select> <!-- pas sur -->
                 </aside>
-                <div class="bg-red-600 w-full">
-                    <!-- ici on met le streamchart -->
-                </div>
+                <div class="w-full h-screen" id="streamchart"> </div>
+                <script src="./scripts/streamchart.js"></script>
             </div>
         </div>
     </main>
+
     <footer class="bg-custom p-3 mt-16">
         <p class="text-white text-lg font-bold font-sans">MMI 2022 SAE303 groupe Léo Meunier et Nathan Carlini</p>
     </footer>
