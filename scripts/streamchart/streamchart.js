@@ -29,9 +29,7 @@ let indexes = [
   "Iron deficiency",
 ];
 
-let identificateur = document.getElementById("pollution");
-let selectedCause = identificateur.value;
-let indexCause;
+
 
 // fetch(
 //   "https://raw.githubusercontent.com/NathanCarlini/countries/main/worldRegionsWB.json"
@@ -146,6 +144,39 @@ C.init = function () {
     }
   }
 
+  fetch(
+    "https://raw.githubusercontent.com/NathanCarlini/countries/main/worldRegionsWB.json"
+  )
+    .then((result) => result.json())
+    .then((data) => {
+      selectionData(data);
+      // console.log(selectionData(data));
+    });
+  
+    
+    
+    let formatTemplateCause = function(value){
+      let template = document.querySelector('#causeId');
+      let html = template.innerHTML;
+      html = html.replaceAll("{{causeName}}", value)
+      return html;
+    }
+    
+    let renderTemplate = function(data){
+      let allhtml = '';
+      for (let element of data){
+        allhtml += formatTemplateCause(element);
+      }
+      let div = document.getElementById('templateCause');
+      div.innerHTML = allhtml;
+    }
+    
+    renderTemplate(indexes)
+    
+    let identificateur = document.getElementById("option");
+    let selectedCause = identificateur.value;
+    let indexCause; 
+    
 
   // Initialize the echarts instance based on the prepared dom
   var myChart = echarts.init(document.getElementById("streamchart"));
@@ -229,10 +260,12 @@ C.init = function () {
     }
   }
   selectionData(M.data)
-  renderData = function (toRender) {
-    option.series[0].data.push(toRender);
-    // console.log(option.series[0].data);
-  };
+  renderData = function(toRender){
+  // console.log(toRender);
+  for (let i = 0; i < toRender.lenght; i ++){
+  option.series[i].data.push(toRender)
+}
+}
   // option.series[0].data.push(toRender)
 
   option && myChart.setOption(option);
