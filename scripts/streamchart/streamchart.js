@@ -42,6 +42,7 @@ let identificateur = document.getElementById("pollution");
 let selectedCause = identificateur.value;
 let indexCause;
 
+// fonction qui parcourt le tableau indexes pour faire correspondre l'index de la cause de mort à celle sélectionnée dans la page par le filter
 for (let i = 0; i < indexes.length; i++) {
   // console.log('le tableau parcouru renvoie la cause : ' + indexes[i]);
   // console.log('la cause sélectionnée est : ' + selectedCause);
@@ -51,21 +52,28 @@ for (let i = 0; i < indexes.length; i++) {
 }
 
 function selectionData(data) {
-
   for (let i = 0; i < data.length; i++) {
+    // console.log("longueur data : " + data.length);
+    // console.log("boucle numéro : " + i);
     let elementValues = Object.values(data[i]);
+
     let year = elementValues[0];
     let yearStr = year.toString();
     let country = elementValues[1];
     let cause = elementValues[indexCause + 2];
+
     let toRender = [yearStr, cause, country];
+    option.series[0].data.push(toRender);
     console.log(toRender);
-    return toRender
+    console.log(option.series[0].data);
+    // renderData(toRender)
   }
-  renderData(toRender)
 }
 
-
+renderData = function (toRender) {
+  option.series[0].data.push(toRender);
+  // console.log(option.series[0].data);
+};
 // Initialize the echarts instance based on the prepared dom
 var myChart = echarts.init(document.getElementById("streamchart"));
 
@@ -247,12 +255,7 @@ option = {
     },
   ],
 };
-// console.log(option.series[0].data);
+console.log(option.series[0].data);
 // option.series[0].data.push(toRender)
-
-renderData = function(toRender){
-  console.log(toRender);
-  option.series[0].data.push(toRender)
-}
 
 option && myChart.setOption(option);
