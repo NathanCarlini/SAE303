@@ -10,3 +10,5 @@
 
 
 -> injecter ces données en tableau de données pour le streamchart
+
+-> les noms de filtres sur les causes vont se faire via l'array du fichier WorldRegionsCodesWB et la data qui sera injectée se fera en fct de la position du filtra dans l'array, + 2
