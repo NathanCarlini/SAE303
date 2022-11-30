@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
 
 
     <script src="./scripts/echarts.js"></script>
-    <link rel="stylesheet" href="./scripts/leaflet.css"/>
+    <link rel="stylesheet" href="./scripts/leaflet.css" />
     <script src="./scripts/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
@@ -53,24 +53,17 @@
         <div class="">
             <p class="text-custom text-5xl font-extrabold text-center justify-center items-center font-sans m-28">
                 Evolution de ce taux entre 1990 et 2019</p>
-            <div class="flex flex-column ">
-                <aside class="bg-custom p-4">
-                    <p class="mx-8 text-white inline-block">cause : </p> 
+                <div class="bg-custom p-14 my-28">
+                    <p class="mx-8 text-white inline-block">cause : </p>
                     <select id="templateCause" class="bg-custom text-white">
-                        <template id="causeId">                           
+                        <template id="causeId">
                             <option id="option" value="{{causeName}}" class="text-white">{{causeName}}</option>
                         </template>
-                        </select></br>
-                        <!-- <select id="templateCause" class="bg-custom text-white">
-                            <option id="option" value="Unsafe water source">Unsafe water source</option>
-                            <option id="option" value="Drug use">Drug use</option>
-                            <option id="option" value="Iron deficiency">Iron deficiency</option>
-                        </select> -->
-                </aside>
-                <div class="w-full h-screen" id="streamchart"> </div>
+                    </select></br>
+                </div>
+                <div class="w-full h-screen mt-36" id="streamchart"> </div>
                 <script src="./scripts/streamchart/streamchart.js"></script>
                 <!-- <script src="./scripts/streamchart/worldRegionsCodesWB.js"></script> -->
-            </div>
         </div>
     </main>
 
