@@ -133,7 +133,7 @@ C.init = function () {
       // console.log("longueur data : " + data.length);
       // console.log("boucle numéro : " + i);
       let elementValues = Object.values(data[i]);
-      console.log(elementValues);
+      // console.log(elementValues);
       let year = elementValues[0];
       let yearStr = year.toString();
       let country = elementValues[1];
@@ -172,5 +172,5 @@ function eventHandler(){
   selectedCause =identificateur.value
 
   C.init()
-  console.log(selectedCause);
+  // console.log(selectedCause);
 }

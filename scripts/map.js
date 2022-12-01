@@ -30,15 +30,16 @@ let indexes = [
 ];
 
 
-
+ 
 let choropleth = document.getElementById("choropleth");
-
+let map = L.map("choropleth").setView([37.8, -96], 4);
 // function getcolor
 let identificateur = document.getElementById("templateCause");
 let indexSecteurChoisi =identificateur.value;
+// console.log(identificateur.value);
 identificateur.addEventListener("change", eventHandler)
 // function syle feature
-let selecteurChoisi = "Outdoor air pollution - OWID"
+// let selecteurChoisi = "Outdoor air pollution - OWID"
 let indexCause
 
 let M = {};
@@ -62,8 +63,8 @@ C.init = function () {
       // console.log(i);
       let dataBleau = Object.values(toInput);
       // console.log(dataBleau);
-      let dataToInject = dataBleau[indexCause]
-      // console.log(dataToInject);
+      let dataToInject = dataBleau[indexCause + 1]
+      console.log(dataToInject);
 
       geodatabrute.features[i].properties["value"] = dataToInject
       // console.log("le pays sélectionné est : ",geodatabrute.features[i].properties.name);
@@ -77,7 +78,7 @@ C.init = function () {
 
   }
 
-  let map = L.map("choropleth").setView([37.8, -96], 4);
+
   // console.log("map = " + map);
   let tiles = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
@@ -106,3 +107,11 @@ let load = async function () {
   C.init();
 };
 load();
+
+function eventHandler(){
+  // identificateur = document.getElementById("templateCause");
+  indexSecteurChoisi =identificateur.value
+
+  C.init()
+  // console.log(indexSecteurChoisi);
+}
