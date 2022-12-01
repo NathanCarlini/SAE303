@@ -64,7 +64,7 @@
         </div>
     </div>
     <div id="graph">
-        <div class="flex flex-row bg-bg ">
+        <div class="flex flex-column bg-bg ">
             <div class="w-3/4 p-14">
                 <h2 class="text-4xl text-white font-bold mb-14 text-center">Evolution de ce taux entre 1990 et 2019</h2>
                 <p class="text-white font-semibold font-sans text-2xl ">“Wubba Lubba Dub Dub!” — Rick
@@ -74,14 +74,7 @@
                 “Nobody exists on purpose. Nobody belongs anywhere. We’re all going to die. Come watch TV.” — Morty
                 “To live is to risk it all; otherwise you’re just an inert chunk of randomly assembled molecules
                 drifting wherever the universe blows you.” — Rick</p>
-                <div class="bg-white p-14 my-28 flex flex-row">
-                    <p class="mx-8 text-bg font-bold text-xl">cause : </p>
-                    <select id="templateCause" class="bg-white text-bg font-bold">
-                        <template id="causeId">
-                            <option id="option" value="{{causeName}}" class="text-bg font-bold">{{causeName}}</option>
-                        </template>
-                    </select>
-                </div>
+
             </div>
             <div class="w-full h-screen mt-36" id="streamchart">
                 <script src="./scripts/streamchart/streamchart.js"></script>            </div>

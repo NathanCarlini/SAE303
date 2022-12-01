@@ -40,7 +40,6 @@ identificateur.addEventListener("change", eventHandler);
 // let selecteurChoisi = "Outdoor air pollution - OWID"
 let indexCause;
 
-
 function getColor(value) {
   return value > 1000000
     ? "#800026"
@@ -107,8 +106,6 @@ C.init = function () {
       // console.log("donnée injectée est : ",geodatabrute.features[i].properties.value);
     }
   }
-
-  
 
   // console.log("map = " + map);
 
