@@ -9,7 +9,7 @@ let tiles = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 }).addTo(map);
 // load GeoJSON from an external file
 fetch(
-  "https://raw.githubusercontent.com/NathanCarlini/countries/main/countries.geojson"
+  "https://raw.githubusercontent.com/NathanCarlini/countries/main/world.geo.json"
 )
   .then((res) => res.json())
   .then((data) => {

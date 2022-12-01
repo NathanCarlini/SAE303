@@ -61,24 +61,24 @@
                     <option value="tout">tout</option>
                 </select>
             </div>
-        </div> -->
-    </div>
-    <div id="graph">
-        <div class="flex flex-row bg-bg ">
-            <div class="w-3/4 p-14">
-                <h2 class="text-4xl text-white font-bold mb-14 text-center">Evolution de ce taux entre 1990 et 2019</h2>
-                <p class="text-white font-semibold font-sans text-2xl ">“Wubba Lubba Dub Dub!” — Rick
-                “What, so everyone’s supposed to sleep every single night now? You realize that nighttime makes up half
-                of all time?” — Rick
-                “Boom! Big reveal! I turned myself into a pickle!” — Rick
-                “Nobody exists on purpose. Nobody belongs anywhere. We’re all going to die. Come watch TV.” — Morty
-                “To live is to risk it all; otherwise you’re just an inert chunk of randomly assembled molecules
-                drifting wherever the universe blows you.” — Rick</p>
-                <div class="bg-white p-14 my-28 flex flex-row">
-                    <p class="mx-8 text-bg font-bold text-xl">cause : </p>
-                    <select id="templateCause" class="bg-white text-bg font-bold">
-                        <template id="causeId">
-                            <option id="option" value="{{causeName}}" class="text-bg font-bold">{{causeName}}</option>
+            <div class="" style="height:600px; width:400;" id="choropleth">
+
+
+                ici on met le choroplet -->
+            </div>
+            <script src="data/countries.geojson" type="application/json"></script>
+            <script src="scripts/map.js" type='module'></script>
+            <script src="scripts/processMap.js"></script>
+        </div>
+        <div class="">
+            <p class="text-custom text-5xl font-extrabold text-center justify-center items-center font-sans m-28">
+                Evolution de ce taux entre 1990 et 2019</p>
+            <div class="flex flex-column ">
+                <aside class="bg-custom p-4">
+                    <p class="mx-8 text-white inline-block">cause : </p> 
+                    <select id="templateCause" class="bg-custom text-white">
+                        <template id="causeId">                           
+                            <option id="option" value="{{causeName}}" class="text-white">{{causeName}}</option>
                         </template>
                     </select></br>
                 </div>
