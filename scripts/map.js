@@ -40,6 +40,48 @@ identificateur.addEventListener("change", eventHandler);
 // let selecteurChoisi = "Outdoor air pollution - OWID"
 let indexCause;
 
+
+function getColor(value) {
+  return value > 1000000
+    ? "#800026"
+    : value > 100000
+    ? "#BD0026"
+    : value > 10000
+    ? "#E31A1C"
+    : value > 1000
+    ? "#FC4E2A"
+    : "#FFEDA0";
+}
+
+function style(feature) {
+  return {
+    fillOpacity: 0.7,
+    fillColor: getColor(feature.properties.value),
+    weight: 1,
+    opacity: 1,
+    color: "#FFEDA0",
+  };
+}
+var geojson;
+// L.control.scale().addTo(map);
+
+var legend = L.control({ position: "bottomright" });
+legend.onAdd = function (map) {
+  var div = L.DomUtil.create("div", "info legend"),
+    grades = [1000, 10000, 100000, 1000000],
+    labels = [];
+  // loop through our density intervals and generate a label with a colored square for each interval
+  for (var i = 0; i < grades.length; i++) {
+    div.innerHTML +=
+      '<i style="background:' +
+      getColor(grades[i] + 1) +
+      '"></i> ' +
+      grades[i] +
+      (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+");
+  }
+  return div;
+};
+legend.addTo(map);
 let M = {};
 let C = {};
 C.init = function () {
@@ -66,47 +108,7 @@ C.init = function () {
     }
   }
 
-  function getColor(value) {
-    return value > 1000000
-      ? "#800026"
-      : value > 100000
-      ? "#BD0026"
-      : value > 10000
-      ? "#E31A1C"
-      : value > 1000
-      ? "#FC4E2A"
-      : "#FFEDA0";
-  }
-
-  function style(feature) {
-    return {
-      fillOpacity: 0.7,
-      fillColor: getColor(feature.properties.value),
-      weight: 1,
-      opacity: 1,
-      color: "#FFEDA0",
-    };
-  }
-  var geojson;
-  // L.control.scale().addTo(map);
-
-  var legend = L.control({ position: "bottomright" });
-  legend.onAdd = function (map) {
-    var div = L.DomUtil.create("div", "info legend"),
-      grades = [1000, 10000, 100000, 1000000],
-      labels = [];
-    // loop through our density intervals and generate a label with a colored square for each interval
-    for (var i = 0; i < grades.length; i++) {
-      div.innerHTML +=
-        '<i style="background:' +
-        getColor(grades[i] + 1) +
-        '"></i> ' +
-        grades[i] +
-        (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+");
-    }
-    return div;
-  };
-  legend.addTo(map);
+  
 
   // console.log("map = " + map);
 
