@@ -160,7 +160,7 @@ let load = async function () {
   let reponse = await fetch(
     "https://raw.githubusercontent.com/NathanCarlini/countries/main/worldRegionsWB.json"
   );
-  console.log();
+  // console.log();
   M.data = await reponse.json();
   C.init();
 };

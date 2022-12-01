@@ -32,7 +32,7 @@ let indexes = [
 
  
 let choropleth = document.getElementById("choropleth");
-let map = L.map("choropleth").setView([37.8, -96], 4);
+var map = L.map("choropleth").setView([37.8, -96], 4);
 // function getcolor
 let identificateur = document.getElementById("templateCause");
 let indexSecteurChoisi =identificateur.value;
@@ -59,59 +59,81 @@ C.init = function () {
 
     for (let i = 0; i < geodatabrute.features.length; i++) {
       let val = geodatabrute.features[i].properties;
-      let toInput = dataATraiter.find(element => element.Country == geodatabrute.features[i].properties.name)
-      // console.log(i);
+      let toInput = dataATraiter.find(element => element.Country == val.name)
+      // console.log(val);
       let dataBleau = Object.values(toInput);
-      // console.log(dataBleau);
+      // console.log(toInput);
       let dataToInject = dataBleau[indexCause + 1]
-      console.log(dataToInject);
+      // console.log(dataToInject);
 
-      geodatabrute.features[i].properties["value"] = dataToInject
+      val["value"] = dataToInject
       // console.log("le pays sélectionné est : ",geodatabrute.features[i].properties.name);
       // console.log("donnée injectée est : ",geodatabrute.features[i].properties.value);
+
+  
+
       }
+    }
       
+      function getColor(value){
+        return value > 1000000 ? "red" :
+               value > 100000  ? "orange" :
+               value > 10000   ? "yellow" :
+               value > 1000    ? "green" :
+                                 "white";
+      };
 
+      function style(feature) {
+        return {
+          
+          fillOpacity: 0.7,
+          fillColor: getColor(feature.properties.value)
+        };
+        
+      }
+      var geojson;
 
-
-
-
-  }
-
-
+  
   // console.log("map = " + map);
-  let tiles = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
-    attribution:
-      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-  }).addTo(map);
-  L.geoJson(M.data).addTo(map);
 
-
+	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+		maxZoom: 18,
+		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(map);
+  
   selectionData(M.data, M.data2);
+  // console.log(selectionData(M.data, M.data2))
+
+  geojson = L.geoJson(M.data, {
+		style: style,
+	}).addTo(map);
 };
-
-
-
 
 
 
 
 let load = async function () {
-  let response = await fetch("../data/world.geo.json");
+  let response = await fetch("https://raw.githubusercontent.com/NathanCarlini/countries/main/world.geo.json");
   M.data = await response.json();
 
-  let response2 = await fetch("../data/tableauPaysMaladies2019.json");
+  let response2 = await fetch("https://raw.githubusercontent.com/NathanCarlini/countries/main/tableauPaysMaladies2019.json");
   M.data2 = await response2.json();
-  // console.log(M.data2);
+  // console.log(M.data);
   C.init();
+  // changeColor(M.data)
+
 };
 load();
+
+
+
 
 function eventHandler(){
   // identificateur = document.getElementById("templateCause");
   indexSecteurChoisi =identificateur.value
-
+  
   C.init()
   // console.log(indexSecteurChoisi);
 }
+
+

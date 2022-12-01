@@ -208,8 +208,13 @@ svg.leaflet-zoom-animated {
 
 /* cursors */
 
+
+
 .leaflet-interactive {
 	cursor: pointer;
+	fill-opacity: 0.5;
+	stroke-width: 1px;
+	stroke: #222;
 	}
 .leaflet-grab {
 	cursor: -webkit-grab;

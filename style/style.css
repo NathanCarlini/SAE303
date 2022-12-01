@@ -513,10 +513,6 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.fixed {
-  position: fixed;
-}
-
 .absolute {
   position: absolute;
 }
@@ -549,10 +545,6 @@ video {
   z-index: 1001;
 }
 
-.m-28 {
-  margin: 7rem;
-}
-
 .mx-8 {
   margin-left: 2rem;
   margin-right: 2rem;
@@ -577,10 +569,6 @@ video {
 
 .mt-16 {
   margin-top: 4rem;
-}
-
-.inline-block {
-  display: inline-block;
 }
 
 .flex {
@@ -662,10 +650,6 @@ video {
   padding: 0.75rem;
 }
 
-.p-4 {
-  padding: 1rem;
-}
-
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -717,11 +701,6 @@ video {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
-}
-
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
 }
 
 .font-semibold {
