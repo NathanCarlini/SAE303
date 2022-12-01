@@ -29,24 +29,39 @@ let indexes = [
   "Iron deficiency",
 ];
 
+let formatTemplateCause = function (value) {
+  let template = document.querySelector("#causeIdMap");
+  let html = template.innerHTML;
+  html = html.replaceAll("{{causeNameMap}}", value);
+  return html;
+};
 
- 
+let renderTemplate = function (data) {
+  let allhtml = "";
+  for (let element of data) {
+    allhtml += formatTemplateCause(element);
+  }
+  let div = document.getElementById("templateCauseMap");
+  div.innerHTML = allhtml;
+};
+
+renderTemplate(indexes);
+
+
 let choropleth = document.getElementById("choropleth");
 let map = L.map("choropleth").setView([37.8, -96], 4);
 // function getcolor
-let identificateur = document.getElementById("templateCause");
-let indexSecteurChoisi =identificateur.value;
+let identificateur = document.getElementById("templateCauseMap");
+let indexSecteurChoisi = identificateur.value;
 // console.log(identificateur.value);
-identificateur.addEventListener("change", eventHandler)
+identificateur.addEventListener("change", eventHandler);
 // function syle feature
 // let selecteurChoisi = "Outdoor air pollution - OWID"
-let indexCause
+let indexCause;
 
 let M = {};
 let C = {};
 C.init = function () {
-
-
   for (let i = 0; i < indexes.length; i++) {
     if (indexSecteurChoisi == indexes[i]) {
       // console.log("cause est : " + selectedCause);
@@ -54,30 +69,23 @@ C.init = function () {
     }
   }
 
-
-  function selectionData(geodatabrute, dataATraiter) {
-
-    for (let i = 0; i < geodatabrute.features.length; i++) {
-      let val = geodatabrute.features[i].properties;
-      let toInput = dataATraiter.find(element => element.Country == geodatabrute.features[i].properties.name)
+  function selectionData(data1, dataATraiter) {
+    for (let i = 0; i < data1.features.length; i++) {
+      let val = data1.features[i].properties;
+      let toInput = dataATraiter.find(
+        (element) => element.Country == data1.features[i].properties.name
+      );
       // console.log(i);
       let dataBleau = Object.values(toInput);
       // console.log(dataBleau);
-      let dataToInject = dataBleau[indexCause + 1]
+      let dataToInject = dataBleau[indexCause + 1];
       console.log(dataToInject);
 
-      geodatabrute.features[i].properties["value"] = dataToInject
+      data1.features[i].properties["value"] = dataToInject;
       // console.log("le pays sélectionné est : ",geodatabrute.features[i].properties.name);
       // console.log("donnée injectée est : ",geodatabrute.features[i].properties.value);
-      }
-      
-
-
-
-
-
+    }
   }
-
 
   // console.log("map = " + map);
   let tiles = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -87,31 +95,28 @@ C.init = function () {
   }).addTo(map);
   L.geoJson(M.data).addTo(map);
 
-
   selectionData(M.data, M.data2);
 };
 
-
-
-
-
-
-
 let load = async function () {
-  let response = await fetch("../data/world.geo.json");
+  let response = await fetch(
+    "https://raw.githubusercontent.com/NathanCarlini/countries/main/world.geo.json"
+  );
   M.data = await response.json();
 
-  let response2 = await fetch("../data/tableauPaysMaladies2019.json");
+  let response2 = await fetch(
+    "https://raw.githubusercontent.com/NathanCarlini/countries/main/tableauPaysMaladies2019.json"
+  );
   M.data2 = await response2.json();
   // console.log(M.data2);
   C.init();
 };
 load();
 
-function eventHandler(){
+function eventHandler() {
   // identificateur = document.getElementById("templateCause");
-  indexSecteurChoisi =identificateur.value
+  indexSecteurChoisi = identificateur.value;
 
-  C.init()
+  C.init();
   // console.log(indexSecteurChoisi);
 }
