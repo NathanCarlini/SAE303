@@ -133,7 +133,7 @@ C.init = function () {
       // console.log("longueur data : " + data.length);
       // console.log("boucle numéro : " + i);
       let elementValues = Object.values(data[i]);
-
+      console.log(elementValues);
       let year = elementValues[0];
       let yearStr = year.toString();
       let country = elementValues[1];
@@ -155,20 +155,13 @@ C.init = function () {
 
   option && myChart.setOption(option);
 };
+
 let load = async function () {
   let reponse = await fetch(
     "https://raw.githubusercontent.com/NathanCarlini/countries/main/worldRegionsWB.json"
   );
-  // fetch(
-  //   "https://raw.githubusercontent.com/NathanCarlini/countries/main/worldRegionsWB.json"
-  // )
-  //   .then((result) => result.json())
-  //   .then((data) => {
-  //     // console.log(data);
-  //     selectionData(data);
-  //   });
+  console.log();
   M.data = await reponse.json();
-
   C.init();
 };
 load();
