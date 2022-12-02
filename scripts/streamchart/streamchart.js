@@ -36,7 +36,7 @@ let formatTemplateCause = function (value) {
   return html;
 };
 
-let renderTemplate = function (data) {
+let renderTemplateCause = function (data) {
   let allhtml = "";
   for (let element of data) {
     allhtml += formatTemplateCause(element);
@@ -45,7 +45,22 @@ let renderTemplate = function (data) {
   div.innerHTML = allhtml;
 };
 
-renderTemplate(indexes);
+let formatTemplateName = function (value) {
+  let template = document.querySelector("#causeId2");
+  let html = template.innerHTML;
+  html = html.replaceAll("{{causeName}}", value);
+  return html;
+};
+
+let renderTemplateName = function (value) {
+  let html = formatTemplateName(value)
+  let div = document.getElementById("templateName");
+  div.innerHTML = html;
+};
+
+let option = document.querySelector("#templateCause")
+let benji = option.value
+renderTemplateCause(indexes);
 
 let identificateur = document.getElementById("templateCause");
 // console.log(identificateur.value);
@@ -170,7 +185,10 @@ load();
 function eventHandler(){
   // identificateur = document.getElementById("templateCause");
   selectedCause =identificateur.value
-
+  benji = option.value
+  console.log(benji)
   C.init()
+  renderTemplateName(benji);
+
   // console.log(selectedCause);
 }

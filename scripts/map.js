@@ -1,4 +1,5 @@
 let indexes = [
+  "High body-mass index",
   "Outdoor air pollution - OWID",
   "High systolic blood pressure",
   "Diet high in sodium",
@@ -17,7 +18,6 @@ let indexes = [
   "Smoking",
   "High fasting plasma glucose",
   "Air pollution",
-  "High body-mass index",
   "Unsafe sanitation",
   "No access to handwashing facility",
   "Drug use",

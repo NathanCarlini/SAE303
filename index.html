@@ -38,16 +38,9 @@
         <div class=" bg-white min-h-screen">
             <div class=" p-16">
                 <h2 class="text-4xl text-bg font-bold mb-28 text-center">Taux de mortalité dans le monde par cause</h2>
-                <p class="text-bg font-semibold font-sans text-2xl ">“Wubba Lubba Dub Dub!” — Rick
-                    “What, so everyone’s supposed to sleep every single night now? You realize that nighttime makes up
-                    half
-                    of all time?” — Rick
-                    “Boom! Big reveal! I turned myself into a pickle!” — Rick
-                    “Nobody exists on purpose. Nobody belongs anywhere. We’re all going to die. Come watch TV.” — Morty
-                    “To live is to risk it all; otherwise you’re just an inert chunk of randomly assembled molecules
-                    drifting wherever the universe blows you.” — Rick</p>
+                <p class="text-bg font-semibold font-sans text-2xl ">L'obésité est un des facteurs les plus importants de décés dans le monde. Il touche tous les continents et peut augmenter les risques de mortalité d'autres facteurs.</p>
             </div>
-            <div class="bg-bg p-14 my-20 flex flex-row">
+            <div class="bg-bg p-14 py-20 flex flex-row">
                 <p class="mx-8 text-white font-bold text-xl">cause : </p>
                 <select id="templateCause" class="bg-bg text-white font-bold">
                     <template id="causeId">
@@ -69,18 +62,14 @@
     </div>
     </div>
     <div id="graph">
-        <div class="flex flex-column bg-bg ">
+        <div class="flex flex-column bg-white ">
             <div class="w-3/4 p-14">
-                <h2 class="text-4xl text-white font-bold mb-14 text-center">Evolution de ce taux entre 1990 et 2019</h2>
-                <p class="text-white font-semibold font-sans text-2xl ">“Wubba Lubba Dub Dub!” — Rick
-                    “What, so everyone’s supposed to sleep every single night now? You realize that nighttime makes up
-                    half
-                    of all time?” — Rick
-                    “Boom! Big reveal! I turned myself into a pickle!” — Rick
-                    “Nobody exists on purpose. Nobody belongs anywhere. We’re all going to die. Come watch TV.” — Morty
-                    “To live is to risk it all; otherwise you’re just an inert chunk of randomly assembled molecules
-                    drifting wherever the universe blows you.” — Rick</p>
-
+                <h2 class="text-4xl text-bg font-bold mb-14 text-center">Evolution de ce taux entre 1990 et 2019</h2>
+                <p class="text-bg font-semibold font-sans text-2xl ">Tous ces différents facteurs de risques ont évolué différemment dans le temps. Par exemple, le taux de mortalité causé par l'usage de drogue augmente continuellement dans le temps, tandis que les taux de mortalité liés aux problèmes de naissance diminuent grâce à l'évolution de la médecine.</p>
+                <div id="templateName" class="mt-24"></div>
+                <template id="causeId2">
+                    <p class="text-bg font-extrabold text-2xl">Cause : {{causeName}}</p>
+                </template>
             </div>
             <div class="w-full h-screen mt-36" id="streamchart">
                 <script src="./scripts/streamchart/streamchart.js"></script>
