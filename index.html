@@ -30,15 +30,17 @@
                 <img class="absolute bottom-0 left-0" src="./assets/bottom-left.png" alt="">
                 <img class="h-2/5 " src="./assets/logo.png" alt="logo">
             </div>
-            <p class=" py-6 px-8 text-4xl text-white font-extrabold text-center ">Evolution des causes de mortalité dans le monde</p>
+            <p class=" py-6 px-8 text-4xl text-white font-extrabold text-center ">Evolution des causes de mortalité dans
+                le monde</p>
         </main>
     </div>
-    <div id="map" >
+    <div id="map">
         <div class=" bg-white min-h-screen">
             <div class=" p-16">
                 <h2 class="text-4xl text-bg font-bold mb-28 text-center">Taux de mortalité dans le monde par cause</h2>
                 <p class="text-bg font-semibold font-sans text-2xl ">“Wubba Lubba Dub Dub!” — Rick
-                    “What, so everyone’s supposed to sleep every single night now? You realize that nighttime makes up half
+                    “What, so everyone’s supposed to sleep every single night now? You realize that nighttime makes up
+                    half
                     of all time?” — Rick
                     “Boom! Big reveal! I turned myself into a pickle!” — Rick
                     “Nobody exists on purpose. Nobody belongs anywhere. We’re all going to die. Come watch TV.” — Morty
@@ -53,37 +55,42 @@
                     </template>
                 </select>
             </div>
-            <div class="w-64 h-screen px-16" style="height:600px; " id="choropleth">
-            
-                <script src="data/countries.geojson" type="application/json"></script>
-                <script src="scripts/map.js" type='module'></script>
-                <script src="scripts/processMap.js"></script>
-            
+            <div class="flex justify-center bg-bg">
+                <div class="w-64 h-screen px-16  justify-center" style="width:80vw; height:750px;" id="choropleth">
+
+                    <script src="data/countries.geojson" type="application/json"></script>
+                    <script src="scripts/map.js" type='module'></script>
+                    <script src="scripts/processMap.js"></script>
+
                     <!-- ici on met le choroplet -->
+                </div>
             </div>
         </div>
+    </div>
     </div>
     <div id="graph">
         <div class="flex flex-column bg-bg ">
             <div class="w-3/4 p-14">
                 <h2 class="text-4xl text-white font-bold mb-14 text-center">Evolution de ce taux entre 1990 et 2019</h2>
                 <p class="text-white font-semibold font-sans text-2xl ">“Wubba Lubba Dub Dub!” — Rick
-                “What, so everyone’s supposed to sleep every single night now? You realize that nighttime makes up half
-                of all time?” — Rick
-                “Boom! Big reveal! I turned myself into a pickle!” — Rick
-                “Nobody exists on purpose. Nobody belongs anywhere. We’re all going to die. Come watch TV.” — Morty
-                “To live is to risk it all; otherwise you’re just an inert chunk of randomly assembled molecules
-                drifting wherever the universe blows you.” — Rick</p>
+                    “What, so everyone’s supposed to sleep every single night now? You realize that nighttime makes up
+                    half
+                    of all time?” — Rick
+                    “Boom! Big reveal! I turned myself into a pickle!” — Rick
+                    “Nobody exists on purpose. Nobody belongs anywhere. We’re all going to die. Come watch TV.” — Morty
+                    “To live is to risk it all; otherwise you’re just an inert chunk of randomly assembled molecules
+                    drifting wherever the universe blows you.” — Rick</p>
 
             </div>
             <div class="w-full h-screen mt-36" id="streamchart">
-                <script src="./scripts/streamchart/streamchart.js"></script>            </div>
+                <script src="./scripts/streamchart/streamchart.js"></script>
+            </div>
         </div>
     </div>
     <footer class="bg-header p-3 mt-16">
-            <p class="text-white text-lg font-bold font-sans">MMI 2022 SAE303 groupe Léo Meunier et Nathan Carlini</p>
+        <p class="text-white text-lg font-bold font-sans">MMI 2022 SAE303 groupe Léo Meunier et Nathan Carlini</p>
     </footer>
-    
+
 </body>
-    
-    </html>
+
+</html>
